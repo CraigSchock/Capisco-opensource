@@ -1,0 +1,4 @@
+export CLASSPATH=bin:lib/slf4j-api-1.7.5.jar:lib/utils.jar:lib/genericCLI.jar:lib/mongo-2.10.1.jar:lib/lucene-analyzers-common-4.10.1.jar:lib/lucene-core-4.10.1-SNAPSHOT.jar:lib/lucene-queryparser-4.10.1.jar
+
+java -classpath $CLASSPATH capisco.SendFile localhost 3434 $*
+

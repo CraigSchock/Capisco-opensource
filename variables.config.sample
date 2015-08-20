@@ -1,0 +1,7 @@
+/env/prompt	> 
+/env/endmessage	--message end--
+/env/time	true
+/env/singleline	false
+/lucene/docID	true
+/lucene/docbase	<path to document sets>/ht
+/lucene/docset	ht1
