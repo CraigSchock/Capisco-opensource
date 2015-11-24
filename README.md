@@ -1,1 +1,2 @@
-Capisco
+Capisco backend.  Open source version
+
