@@ -22,7 +22,7 @@ public class CapiscoPortHandler extends PortHandler
 
 	public DBCollection getCollection(String name)
 	{
-		return capisco.getCollection(name);
+		return capisco.getCollection(get("/env/database"), name);
 	}
 
 	public IndexSearcher getLuceneIndex(String path)

@@ -23,6 +23,7 @@ import org.apache.lucene.store.FSDirectory;
 public class Capisco extends Main
 {
 	private MongoClient mongoClient;
+	private HashMap<String, DB> dbs = new HashMap<String, DB>();
 	private DB db;
 	private HashMap<String, IndexSearcher> luceneIndexes = 
 		new HashMap<String, IndexSearcher>();
@@ -41,7 +42,8 @@ public class Capisco extends Main
 		try
 		{
 			mongoClient = new MongoClient();
-			db = mongoClient.getDB("wikipedia");
+			dbs.put("wikipedia", mongoClient.getDB("wikipedia"));
+
 		}
 		catch (Exception x)
 		{
@@ -68,6 +70,20 @@ public class Capisco extends Main
 
 	public DBCollection getCollection(String name)
 	{
+		return getCollection("wikipedia", name);
+	}
+
+	public DBCollection getCollection(String database, String name)
+	{
+		DB db;
+
+		db = dbs.get(database);
+		if (db == null)
+		{
+			db = mongoClient.getDB(database);
+			dbs.put(database, db);
+		}
+
 		return db.getCollection(name);
 	}
 
